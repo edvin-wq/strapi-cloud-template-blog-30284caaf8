@@ -1,6 +1,6 @@
 {
-  "name": "my-app-name",
-  "version": "0.1.0",
+  "name": "aura-cms",
+  "version": "1.0.0",
   "private": true,
   "description": "A Strapi application",
   "scripts": {
@@ -12,9 +12,9 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.15.0",
-    "@strapi/plugin-users-permissions": "5.15.0",
-    "@strapi/strapi": "5.15.0",
+    "@strapi/plugin-cloud": "5.23.1",
+    "@strapi/plugin-users-permissions": "5.23.1",
+    "@strapi/strapi": "5.23.1",
     "better-sqlite3": "11.3.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
