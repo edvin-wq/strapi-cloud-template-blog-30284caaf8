@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_featured_brands",
+  "info": {
+    "displayName": "Featured Brands"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand.brand"
+    }
+  },
+  "config": {}
+}

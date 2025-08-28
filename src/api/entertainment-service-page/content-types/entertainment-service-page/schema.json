@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "entertainment_service_pages",
+  "info": {
+    "singularName": "entertainment-service-page",
+    "pluralName": "entertainment-service-pages",
+    "displayName": "Entertainment Service Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

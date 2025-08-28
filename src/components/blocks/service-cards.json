@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_service_cards",
+  "info": {
+    "displayName": "Service Cards"
+  },
+  "options": {},
+  "attributes": {
+    "services": {
+      "type": "component",
+      "component": "cards.service-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

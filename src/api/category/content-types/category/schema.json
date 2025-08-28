@@ -4,28 +4,27 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Category",
-    "description": "Organize your content into categories"
+    "displayName": "Category"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid"
+    "category": {
+      "type": "uid",
+      "targetField": "title"
     },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
-    },
-    "description": {
-      "type": "text"
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "media-room",
+        "restaurant",
+        "entertainment"
+      ]
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_site_settings_social_infos",
+  "info": {
+    "displayName": "SocialInfo"
+  },
+  "options": {},
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

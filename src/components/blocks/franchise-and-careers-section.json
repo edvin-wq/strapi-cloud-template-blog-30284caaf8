@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_franchise_and_careers_sections",
+  "info": {
+    "displayName": "Franchise & Careers Section"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "component": "cards.franchise-careers-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

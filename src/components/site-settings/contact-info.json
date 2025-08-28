@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_site_settings_contact_infos",
+  "info": {
+    "displayName": "ContactInfo"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "blocks",
+      "required": true
+    },
+    "opening_hours": {
+      "type": "blocks",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

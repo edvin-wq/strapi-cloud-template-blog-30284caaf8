@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "meet_the_leaders_pages",
+  "info": {
+    "singularName": "meet-the-leaders-page",
+    "pluralName": "meet-the-leaders-pages",
+    "displayName": "Meet The Leaders Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

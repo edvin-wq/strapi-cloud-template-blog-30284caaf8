@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "media_room_pages",
+  "info": {
+    "singularName": "media-room-page",
+    "pluralName": "media-room-pages",
+    "displayName": "Media Room Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

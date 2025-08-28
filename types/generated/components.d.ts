@@ -1,75 +1,208 @@
-import type { Struct, Schema } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface BlocksFeaturedBrands extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_featured_brands';
   info: {
-    displayName: 'Slider';
-    icon: 'address-book';
-    description: '';
+    displayName: 'Featured Brands';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
-  info: {
-    name: 'Seo';
-    icon: 'allergies';
-    displayName: 'Seo';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
-  info: {
-    displayName: 'Rich text';
-    icon: 'align-justify';
-    description: '';
-  };
-  attributes: {
-    body: Schema.Attribute.RichText;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    description: Schema.Attribute.Text;
     title: Schema.Attribute.String;
-    body: Schema.Attribute.Text;
   };
 }
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface BlocksFranchiseAndCareersSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_franchise_and_careers_sections';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'Franchise & Careers Section';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    cards: Schema.Attribute.Component<'cards.franchise-careers-card', true>;
+  };
+}
+
+export interface BlocksHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    logo: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['main', 'service', 'detailPage', 'singlePage']
+    > &
+      Schema.Attribute.DefaultTo<'main'>;
+    video: Schema.Attribute.Media<'videos'>;
+  };
+}
+
+export interface BlocksMainNewsSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_main_news_sections';
+  info: {
+    displayName: 'Restaurant News Section';
+  };
+  attributes: {
+    background: Schema.Attribute.Media<'images'>;
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksParallaxHero extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_parallax_heroes';
+  info: {
+    displayName: 'Parallax Hero';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface BlocksServiceCards extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_service_cards';
+  info: {
+    displayName: 'Service Cards';
+  };
+  attributes: {
+    services: Schema.Attribute.Component<'cards.service-card', true>;
+  };
+}
+
+export interface BlocksTextSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_text_sections';
+  info: {
+    displayName: 'Text Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface CardsFranchiseCareersCard extends Struct.ComponentSchema {
+  collectionName: 'components_cards_franchise_careers_cards';
+  info: {
+    displayName: 'Franchise Careers Card';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CardsServiceCard extends Struct.ComponentSchema {
+  collectionName: 'components_cards_service_cards';
+  info: {
+    displayName: 'Service Card';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    image: Schema.Attribute.Media<'images'>;
+    logo: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsLogo extends Struct.ComponentSchema {
+  collectionName: 'components_elements_logos';
+  info: {
+    displayName: 'Logo';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    logoText: Schema.Attribute.String;
+  };
+}
+
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    get_in_touch: Schema.Attribute.Component<'elements.link', false>;
+    logo: Schema.Attribute.Component<'elements.logo', false>;
+    navigation: Schema.Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface LayoutHeader extends Struct.ComponentSchema {
+  collectionName: 'components_layout_headers';
+  info: {
+    displayName: 'Header';
+  };
+  attributes: {
+    logo: Schema.Attribute.Component<'elements.logo', false>;
+    navigation: Schema.Attribute.Component<'elements.link', true>;
+  };
+}
+
+export interface SiteSettingsContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_site_settings_contact_infos';
+  info: {
+    displayName: 'ContactInfo';
+  };
+  attributes: {
+    address: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    opening_hours: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SiteSettingsSocialInfo extends Struct.ComponentSchema {
+  collectionName: 'components_site_settings_social_infos';
+  info: {
+    displayName: 'SocialInfo';
+  };
+  attributes: {
+    facebook: Schema.Attribute.String;
+    instagram: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.slider': SharedSlider;
-      'shared.seo': SharedSeo;
-      'shared.rich-text': SharedRichText;
-      'shared.quote': SharedQuote;
-      'shared.media': SharedMedia;
+      'blocks.featured-brands': BlocksFeaturedBrands;
+      'blocks.franchise-and-careers-section': BlocksFranchiseAndCareersSection;
+      'blocks.hero-section': BlocksHeroSection;
+      'blocks.main-news-section': BlocksMainNewsSection;
+      'blocks.parallax-hero': BlocksParallaxHero;
+      'blocks.service-cards': BlocksServiceCards;
+      'blocks.text-section': BlocksTextSection;
+      'cards.franchise-careers-card': CardsFranchiseCareersCard;
+      'cards.service-card': CardsServiceCard;
+      'elements.link': ElementsLink;
+      'elements.logo': ElementsLogo;
+      'layout.footer': LayoutFooter;
+      'layout.header': LayoutHeader;
+      'site-settings.contact-info': SiteSettingsContactInfo;
+      'site-settings.social-info': SiteSettingsSocialInfo;
     }
   }
 }

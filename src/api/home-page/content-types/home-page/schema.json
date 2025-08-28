@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "action": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.hero-section",
+        "blocks.text-section",
+        "blocks.service-cards",
+        "blocks.parallax-hero",
+        "blocks.featured-brands",
+        "blocks.main-news-section",
+        "blocks.franchise-and-careers-section"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "singleType",
+  "collectionName": "hospitality_and_food_service_pages",
+  "info": {
+    "singularName": "hospitality-and-food-service-page",
+    "pluralName": "hospitality-and-food-service-pages",
+    "displayName": "Hospitality & Food Service Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
