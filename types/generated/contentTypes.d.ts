@@ -414,6 +414,14 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.carousel',
+        'blocks.parallax-hero',
+        'blocks.text-section',
+        'blocks.hero-section',
+      ]
+    >;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     comingSoon: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
@@ -663,6 +671,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'blocks.featured-brands',
         'blocks.main-news-section',
         'blocks.franchise-and-careers-section',
+        'blocks.carousel',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -787,35 +796,6 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
-  collectionName: 'restaurants';
-  info: {
-    displayName: 'Restaurant';
-    pluralName: 'restaurants';
-    singularName: 'restaurant';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::restaurant.restaurant'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1345,7 +1325,6 @@ declare module '@strapi/strapi' {
       'api::media-room-page.media-room-page': ApiMediaRoomPageMediaRoomPage;
       'api::meet-the-leaders-page.meet-the-leaders-page': ApiMeetTheLeadersPageMeetTheLeadersPage;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
-      'api::restaurant.restaurant': ApiRestaurantRestaurant;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

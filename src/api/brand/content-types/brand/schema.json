@@ -52,6 +52,15 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.carousel",
+        "blocks.parallax-hero",
+        "blocks.text-section",
+        "blocks.hero-section"
+      ]
     }
   }
 }

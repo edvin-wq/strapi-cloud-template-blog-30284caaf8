@@ -18,17 +18,17 @@
         "images"
       ]
     },
-    "brands": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::brand.brand"
-    },
     "background": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
     }
   },
   "config": {}

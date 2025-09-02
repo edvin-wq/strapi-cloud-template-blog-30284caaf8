@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_carousels';
+  info: {
+    displayName: 'Carousel';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksFeaturedBrands extends Struct.ComponentSchema {
   collectionName: 'components_blocks_featured_brands';
   info: {
@@ -35,7 +47,7 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     logo: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<
-      ['main', 'service', 'detailPage', 'singlePage']
+      ['main', 'service', 'page', 'singlePage']
     > &
       Schema.Attribute.DefaultTo<'main'>;
     video: Schema.Attribute.Media<'videos'>;
@@ -49,7 +61,7 @@ export interface BlocksMainNewsSection extends Struct.ComponentSchema {
   };
   attributes: {
     background: Schema.Attribute.Media<'images'>;
-    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     description: Schema.Attribute.Text;
     images: Schema.Attribute.Media<'images', true>;
     title: Schema.Attribute.String;
@@ -188,6 +200,7 @@ export interface SiteSettingsSocialInfo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.carousel': BlocksCarousel;
       'blocks.featured-brands': BlocksFeaturedBrands;
       'blocks.franchise-and-careers-section': BlocksFranchiseAndCareersSection;
       'blocks.hero-section': BlocksHeroSection;
