@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_shuffle_galleries",
+  "info": {
+    "displayName": "Shuffle Gallery"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Gallery"
+    },
+    "description": {
+      "type": "text",
+      "default": "Our brands have rapidly grown, becoming popular destinations for various customer segments due to our wide range of offerings."
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

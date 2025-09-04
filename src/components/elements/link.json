@@ -6,7 +6,8 @@
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "string",
+      "default": "Find Out More"
     },
     "href": {
       "type": "string"

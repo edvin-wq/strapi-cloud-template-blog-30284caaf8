@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_restaurants_happening_sections",
+  "info": {
+    "displayName": "Restaurants Happening Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "restaurants_happenings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurants-happening.restaurants-happening"
+    }
+  },
+  "config": {}
+}

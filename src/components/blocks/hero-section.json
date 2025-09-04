@@ -39,7 +39,7 @@
     },
     "type": {
       "type": "enumeration",
-      "default": "main",
+      "default": "page",
       "enum": [
         "main",
         "service",

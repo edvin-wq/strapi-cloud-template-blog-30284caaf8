@@ -59,7 +59,12 @@
         "blocks.carousel",
         "blocks.parallax-hero",
         "blocks.text-section",
-        "blocks.hero-section"
+        "blocks.hero-section",
+        "blocks.contact-information",
+        "blocks.signature-menu",
+        "blocks.restaurants-happening-section",
+        "blocks.shuffle-gallery",
+        "blocks.cta-section"
       ]
     }
   }

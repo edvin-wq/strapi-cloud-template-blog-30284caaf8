@@ -1,0 +1,58 @@
+{
+  "collectionName": "components_blocks_contact_informations",
+  "info": {
+    "displayName": "Contact Information"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "location": {
+      "type": "text"
+    },
+    "openingDays": {
+      "type": "string"
+    },
+    "openingHours": {
+      "type": "string"
+    },
+    "openingHoursInfo": {
+      "type": "blocks"
+    },
+    "website": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "x": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "tiktok": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

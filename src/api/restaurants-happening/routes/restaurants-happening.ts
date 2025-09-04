@@ -1,0 +1,7 @@
+/**
+ * restaurants-happening router
+ */
+
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::restaurants-happening.restaurants-happening');

@@ -420,6 +420,11 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
         'blocks.parallax-hero',
         'blocks.text-section',
         'blocks.hero-section',
+        'blocks.contact-information',
+        'blocks.signature-menu',
+        'blocks.restaurants-happening-section',
+        'blocks.shuffle-gallery',
+        'blocks.cta-section',
       ]
     >;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
@@ -796,6 +801,40 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRestaurantsHappeningRestaurantsHappening
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'restaurants_happenings';
+  info: {
+    displayName: 'Restaurants Happening';
+    pluralName: 'restaurants-happenings';
+    singularName: 'restaurants-happening';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Schema.Attribute.Relation<'oneToOne', 'api::brand.brand'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::restaurants-happening.restaurants-happening'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1325,6 +1364,7 @@ declare module '@strapi/strapi' {
       'api::media-room-page.media-room-page': ApiMediaRoomPageMediaRoomPage;
       'api::meet-the-leaders-page.meet-the-leaders-page': ApiMeetTheLeadersPageMeetTheLeadersPage;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
+      'api::restaurants-happening.restaurants-happening': ApiRestaurantsHappeningRestaurantsHappening;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

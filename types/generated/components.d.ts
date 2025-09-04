@@ -12,6 +12,39 @@ export interface BlocksCarousel extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksContactInformation extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_contact_informations';
+  info: {
+    displayName: 'Contact Information';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    facebook: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    instagram: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
+    location: Schema.Attribute.Text;
+    openingDays: Schema.Attribute.String;
+    openingHours: Schema.Attribute.String;
+    openingHoursInfo: Schema.Attribute.Blocks;
+    phone: Schema.Attribute.String;
+    tiktok: Schema.Attribute.String;
+    website: Schema.Attribute.String;
+    whatsapp: Schema.Attribute.String;
+    x: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksCtaSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_cta_sections';
+  info: {
+    displayName: 'CTA Section';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+  };
+}
+
 export interface BlocksFeaturedBrands extends Struct.ComponentSchema {
   collectionName: 'components_blocks_featured_brands';
   info: {
@@ -49,7 +82,7 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     type: Schema.Attribute.Enumeration<
       ['main', 'service', 'page', 'singlePage']
     > &
-      Schema.Attribute.DefaultTo<'main'>;
+      Schema.Attribute.DefaultTo<'page'>;
     video: Schema.Attribute.Media<'videos'>;
   };
 }
@@ -79,6 +112,22 @@ export interface BlocksParallaxHero extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksRestaurantsHappeningSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_restaurants_happening_sections';
+  info: {
+    displayName: 'Restaurants Happening Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    restaurants_happenings: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::restaurants-happening.restaurants-happening'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksServiceCards extends Struct.ComponentSchema {
   collectionName: 'components_blocks_service_cards';
   info: {
@@ -86,6 +135,32 @@ export interface BlocksServiceCards extends Struct.ComponentSchema {
   };
   attributes: {
     services: Schema.Attribute.Component<'cards.service-card', true>;
+  };
+}
+
+export interface BlocksShuffleGallery extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_shuffle_galleries';
+  info: {
+    displayName: 'Shuffle Gallery';
+  };
+  attributes: {
+    description: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Our brands have rapidly grown, becoming popular destinations for various customer segments due to our wide range of offerings.'>;
+    images: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Gallery'>;
+  };
+}
+
+export interface BlocksSignatureMenu extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_signature_menus';
+  info: {
+    displayName: 'Signature Menu';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -97,6 +172,19 @@ export interface BlocksTextSection extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Blocks;
     title: Schema.Attribute.Text;
+  };
+}
+
+export interface CardsCardPost extends Struct.ComponentSchema {
+  collectionName: 'components_cards_card_posts';
+  info: {
+    displayName: 'Card Post';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    excerpt: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -134,7 +222,7 @@ export interface ElementsLink extends Struct.ComponentSchema {
   attributes: {
     href: Schema.Attribute.String;
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Find Out More'>;
   };
 }
 
@@ -201,13 +289,19 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.carousel': BlocksCarousel;
+      'blocks.contact-information': BlocksContactInformation;
+      'blocks.cta-section': BlocksCtaSection;
       'blocks.featured-brands': BlocksFeaturedBrands;
       'blocks.franchise-and-careers-section': BlocksFranchiseAndCareersSection;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.main-news-section': BlocksMainNewsSection;
       'blocks.parallax-hero': BlocksParallaxHero;
+      'blocks.restaurants-happening-section': BlocksRestaurantsHappeningSection;
       'blocks.service-cards': BlocksServiceCards;
+      'blocks.shuffle-gallery': BlocksShuffleGallery;
+      'blocks.signature-menu': BlocksSignatureMenu;
       'blocks.text-section': BlocksTextSection;
+      'cards.card-post': CardsCardPost;
       'cards.franchise-careers-card': CardsFranchiseCareersCard;
       'cards.service-card': CardsServiceCard;
       'elements.link': ElementsLink;
