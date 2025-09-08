@@ -1,11 +1,14 @@
 {
-  "collectionName": "components_blocks_parallax_heroes",
+  "collectionName": "components_blocks_full_size_images",
   "info": {
-    "displayName": "Parallax Hero"
+    "displayName": "Full Size Image"
   },
   "options": {},
   "attributes": {
     "title": {
+      "type": "string"
+    },
+    "description": {
       "type": "text"
     },
     "image": {
@@ -14,6 +17,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "isParallax": {
+      "type": "boolean"
     }
   },
   "config": {}

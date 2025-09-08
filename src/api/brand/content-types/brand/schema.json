@@ -57,14 +57,14 @@
       "type": "dynamiczone",
       "components": [
         "blocks.carousel",
-        "blocks.parallax-hero",
         "blocks.text-section",
         "blocks.hero-section",
         "blocks.contact-information",
         "blocks.signature-menu",
         "blocks.restaurants-happening-section",
         "blocks.shuffle-gallery",
-        "blocks.cta-section"
+        "blocks.cta-section",
+        "blocks.full-size-image"
       ]
     }
   }

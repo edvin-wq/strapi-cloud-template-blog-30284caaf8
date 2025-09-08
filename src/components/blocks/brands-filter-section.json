@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_blocks_brands_filter_sections",
+  "info": {
+    "displayName": "Brands Filter Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "hasCategoryAll": {
+      "type": "boolean",
+      "default": false
+    },
+    "categoryAllTitle": {
+      "type": "string",
+      "default": "All"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand.brand"
+    }
+  },
+  "config": {}
+}

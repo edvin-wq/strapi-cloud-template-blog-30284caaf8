@@ -417,7 +417,6 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.carousel',
-        'blocks.parallax-hero',
         'blocks.text-section',
         'blocks.hero-section',
         'blocks.contact-information',
@@ -425,6 +424,7 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
         'blocks.restaurants-happening-section',
         'blocks.shuffle-gallery',
         'blocks.cta-section',
+        'blocks.full-size-image',
       ]
     >;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
@@ -464,6 +464,7 @@ export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -471,6 +472,7 @@ export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -523,6 +525,7 @@ export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -530,6 +533,7 @@ export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -548,9 +552,20 @@ export interface ApiEntertainmentServicePageEntertainmentServicePage
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.brands-filter-section',
+        'blocks.restaurant-brands-section',
+        'blocks.media-room-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -558,6 +573,7 @@ export interface ApiEntertainmentServicePageEntertainmentServicePage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -604,6 +620,7 @@ export interface ApiFranchisePageFranchisePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -611,6 +628,7 @@ export interface ApiFranchisePageFranchisePage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -672,7 +690,6 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'blocks.hero-section',
         'blocks.text-section',
         'blocks.service-cards',
-        'blocks.parallax-hero',
         'blocks.featured-brands',
         'blocks.main-news-section',
         'blocks.franchise-and-careers-section',
@@ -709,9 +726,20 @@ export interface ApiHospitalityAndFoodServicePageHospitalityAndFoodServicePage
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.brands-filter-section',
+        'blocks.restaurant-brands-section',
+        'blocks.media-room-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -719,6 +747,7 @@ export interface ApiHospitalityAndFoodServicePageHospitalityAndFoodServicePage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -739,6 +768,7 @@ export interface ApiMediaRoomPageMediaRoomPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -746,6 +776,7 @@ export interface ApiMediaRoomPageMediaRoomPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -767,6 +798,7 @@ export interface ApiMeetTheLeadersPageMeetTheLeadersPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -774,6 +806,7 @@ export interface ApiMeetTheLeadersPageMeetTheLeadersPage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -794,6 +827,7 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -801,6 +835,7 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

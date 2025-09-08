@@ -52,6 +52,11 @@
     },
     "tiktok": {
       "type": "string"
+    },
+    "store": {
+      "type": "component",
+      "component": "cards.brand-contact-info",
+      "repeatable": true
     }
   },
   "config": {}

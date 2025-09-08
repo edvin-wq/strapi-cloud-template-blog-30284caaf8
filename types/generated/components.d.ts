@@ -1,5 +1,21 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksBrandsFilterSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_brands_filter_sections';
+  info: {
+    displayName: 'Brands Filter Section';
+  };
+  attributes: {
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    categoryAllTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'All'>;
+    description: Schema.Attribute.Text;
+    hasCategoryAll: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksCarousel extends Struct.ComponentSchema {
   collectionName: 'components_blocks_carousels';
   info: {
@@ -28,6 +44,7 @@ export interface BlocksContactInformation extends Struct.ComponentSchema {
     openingHours: Schema.Attribute.String;
     openingHoursInfo: Schema.Attribute.Blocks;
     phone: Schema.Attribute.String;
+    store: Schema.Attribute.Component<'cards.brand-contact-info', true>;
     tiktok: Schema.Attribute.String;
     website: Schema.Attribute.String;
     whatsapp: Schema.Attribute.String;
@@ -68,6 +85,19 @@ export interface BlocksFranchiseAndCareersSection
   };
 }
 
+export interface BlocksFullSizeImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_full_size_images';
+  info: {
+    displayName: 'Full Size Image';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    isParallax: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_sections';
   info: {
@@ -101,14 +131,29 @@ export interface BlocksMainNewsSection extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksParallaxHero extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_parallax_heroes';
+export interface BlocksMediaRoomSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_media_room_sections';
   info: {
-    displayName: 'Parallax Hero';
+    displayName: 'Media Room Section';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Text;
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksRestaurantBrandsSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_restaurant_brands_sections';
+  info: {
+    displayName: 'Restaurant Brands Section';
+  };
+  attributes: {
+    background: Schema.Attribute.Media<'images'>;
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -175,6 +220,20 @@ export interface BlocksTextSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CardsBrandContactInfo extends Struct.ComponentSchema {
+  collectionName: 'components_cards_brand_contact_infos';
+  info: {
+    displayName: 'Brand Contact Info';
+  };
+  attributes: {
+    delivery: Schema.Attribute.Component<'elements.link', true>;
+    location: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    phoneNo: Schema.Attribute.String;
+    workingInfo: Schema.Attribute.Component<'elements.working-info', true>;
+  };
+}
+
 export interface CardsCardPost extends Struct.ComponentSchema {
   collectionName: 'components_cards_card_posts';
   info: {
@@ -237,16 +296,29 @@ export interface ElementsLogo extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsWorkingInfo extends Struct.ComponentSchema {
+  collectionName: 'components_elements_working_infos';
+  info: {
+    displayName: 'Working Info';
+  };
+  attributes: {
+    day: Schema.Attribute.String;
+    hours: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutFooter extends Struct.ComponentSchema {
   collectionName: 'components_layout_footers';
   info: {
     displayName: 'Footer';
   };
   attributes: {
+    applestore: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     get_in_touch: Schema.Attribute.Component<'elements.link', false>;
     logo: Schema.Attribute.Component<'elements.logo', false>;
     navigation: Schema.Attribute.Component<'elements.link', true>;
+    playstore: Schema.Attribute.String;
   };
 }
 
@@ -288,24 +360,29 @@ export interface SiteSettingsSocialInfo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.brands-filter-section': BlocksBrandsFilterSection;
       'blocks.carousel': BlocksCarousel;
       'blocks.contact-information': BlocksContactInformation;
       'blocks.cta-section': BlocksCtaSection;
       'blocks.featured-brands': BlocksFeaturedBrands;
       'blocks.franchise-and-careers-section': BlocksFranchiseAndCareersSection;
+      'blocks.full-size-image': BlocksFullSizeImage;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.main-news-section': BlocksMainNewsSection;
-      'blocks.parallax-hero': BlocksParallaxHero;
+      'blocks.media-room-section': BlocksMediaRoomSection;
+      'blocks.restaurant-brands-section': BlocksRestaurantBrandsSection;
       'blocks.restaurants-happening-section': BlocksRestaurantsHappeningSection;
       'blocks.service-cards': BlocksServiceCards;
       'blocks.shuffle-gallery': BlocksShuffleGallery;
       'blocks.signature-menu': BlocksSignatureMenu;
       'blocks.text-section': BlocksTextSection;
+      'cards.brand-contact-info': CardsBrandContactInfo;
       'cards.card-post': CardsCardPost;
       'cards.franchise-careers-card': CardsFranchiseCareersCard;
       'cards.service-card': CardsServiceCard;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
+      'elements.working-info': ElementsWorkingInfo;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'site-settings.contact-info': SiteSettingsContactInfo;

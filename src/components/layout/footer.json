@@ -22,6 +22,12 @@
       "type": "component",
       "component": "elements.link",
       "repeatable": false
+    },
+    "applestore": {
+      "type": "string"
+    },
+    "playstore": {
+      "type": "string"
     }
   },
   "config": {}

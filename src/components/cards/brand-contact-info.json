@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_cards_brand_contact_infos",
+  "info": {
+    "displayName": "Brand Contact Info"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phoneNo": {
+      "type": "string"
+    },
+    "location": {
+      "type": "text"
+    },
+    "workingInfo": {
+      "type": "component",
+      "component": "elements.working-info",
+      "repeatable": true
+    },
+    "delivery": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_media_room_sections",
+  "info": {
+    "displayName": "Media Room Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    }
+  },
+  "config": {}
+}

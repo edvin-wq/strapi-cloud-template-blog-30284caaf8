@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_working_infos",
+  "info": {
+    "displayName": "Working Info"
+  },
+  "options": {},
+  "attributes": {
+    "day": {
+      "type": "string"
+    },
+    "hours": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
