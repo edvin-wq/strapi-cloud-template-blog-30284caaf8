@@ -34,7 +34,6 @@ export interface BlocksContactInformation extends Struct.ComponentSchema {
     displayName: 'Contact Information';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'elements.link', false>;
     facebook: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     instagram: Schema.Attribute.String;
@@ -43,12 +42,11 @@ export interface BlocksContactInformation extends Struct.ComponentSchema {
     openingDays: Schema.Attribute.String;
     openingHours: Schema.Attribute.String;
     openingHoursInfo: Schema.Attribute.Blocks;
-    phone: Schema.Attribute.String;
     store: Schema.Attribute.Component<'cards.brand-contact-info', true>;
     tiktok: Schema.Attribute.String;
     website: Schema.Attribute.String;
-    whatsapp: Schema.Attribute.String;
     x: Schema.Attribute.String;
+    youtube: Schema.Attribute.String;
   };
 }
 
@@ -226,6 +224,7 @@ export interface CardsBrandContactInfo extends Struct.ComponentSchema {
     displayName: 'Brand Contact Info';
   };
   attributes: {
+    address: Schema.Attribute.String;
     delivery: Schema.Attribute.Component<'elements.link', true>;
     location: Schema.Attribute.Text;
     name: Schema.Attribute.String;

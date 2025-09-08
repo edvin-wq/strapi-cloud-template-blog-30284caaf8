@@ -12,6 +12,9 @@
         "images"
       ]
     },
+    "website": {
+      "type": "string"
+    },
     "location": {
       "type": "text"
     },
@@ -24,13 +27,10 @@
     "openingHoursInfo": {
       "type": "blocks"
     },
-    "website": {
-      "type": "string"
-    },
-    "cta": {
+    "store": {
       "type": "component",
-      "component": "elements.link",
-      "repeatable": false
+      "component": "cards.brand-contact-info",
+      "repeatable": true
     },
     "facebook": {
       "type": "string"
@@ -44,19 +44,11 @@
     "instagram": {
       "type": "string"
     },
-    "phone": {
-      "type": "string"
-    },
-    "whatsapp": {
-      "type": "string"
-    },
     "tiktok": {
       "type": "string"
     },
-    "store": {
-      "type": "component",
-      "component": "cards.brand-contact-info",
-      "repeatable": true
+    "youtube": {
+      "type": "string"
     }
   },
   "config": {}

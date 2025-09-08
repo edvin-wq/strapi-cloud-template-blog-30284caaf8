@@ -11,6 +11,9 @@
     "phoneNo": {
       "type": "string"
     },
+    "address": {
+      "type": "string"
+    },
     "location": {
       "type": "text"
     },
