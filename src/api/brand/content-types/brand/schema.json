@@ -51,7 +51,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "blocks": {
       "type": "dynamiczone",

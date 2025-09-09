@@ -15,18 +15,6 @@
     "website": {
       "type": "string"
     },
-    "location": {
-      "type": "text"
-    },
-    "openingDays": {
-      "type": "string"
-    },
-    "openingHours": {
-      "type": "string"
-    },
-    "openingHoursInfo": {
-      "type": "blocks"
-    },
     "store": {
       "type": "component",
       "component": "cards.brand-contact-info",

@@ -38,10 +38,6 @@ export interface BlocksContactInformation extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     instagram: Schema.Attribute.String;
     linkedin: Schema.Attribute.String;
-    location: Schema.Attribute.Text;
-    openingDays: Schema.Attribute.String;
-    openingHours: Schema.Attribute.String;
-    openingHoursInfo: Schema.Attribute.Blocks;
     store: Schema.Attribute.Component<'cards.brand-contact-info', true>;
     tiktok: Schema.Attribute.String;
     website: Schema.Attribute.String;
@@ -228,7 +224,11 @@ export interface CardsBrandContactInfo extends Struct.ComponentSchema {
     delivery: Schema.Attribute.Component<'elements.link', true>;
     location: Schema.Attribute.Text;
     name: Schema.Attribute.String;
+    otherPhoneNo: Schema.Attribute.String;
+    otherPhoneText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Other Phone No:'>;
     phoneNo: Schema.Attribute.String;
+    workingHoursInfo: Schema.Attribute.Blocks;
     workingInfo: Schema.Attribute.Component<'elements.working-info', true>;
   };
 }
