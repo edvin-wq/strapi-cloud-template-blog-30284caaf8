@@ -12,7 +12,7 @@ npm run strapi transfer -- --to https://pretty-wonder-71e051ad09.strapiapp.com/a
 npm run strapi transfer -- --to https://pretty-wonder-71e051ad09.strapiapp.com/admin --only files
 
 pull
-npm run strapi transfer -- --from https://pretty-wonder-71e051ad09.strapiapp.com/admin
+npm run strapi transfer --from=https://pretty-wonder-71e051ad09.strapiapp.com/admin --to=local
 ```
 
 ### `develop`
