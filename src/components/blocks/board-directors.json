@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_board_directors",
+  "info": {
+    "displayName": "Board Directors"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "teams": {
+      "type": "component",
+      "component": "cards.team-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

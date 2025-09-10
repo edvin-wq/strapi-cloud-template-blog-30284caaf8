@@ -19,6 +19,10 @@
       "type": "string",
       "default": "All"
     },
+    "showTabbing": {
+      "type": "boolean",
+      "default": true
+    },
     "brands": {
       "type": "relation",
       "relation": "oneToMany",

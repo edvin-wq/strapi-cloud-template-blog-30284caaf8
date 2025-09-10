@@ -16,6 +16,15 @@
     },
     "description": {
       "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.hero-section",
+        "blocks.text-section",
+        "blocks.brands-filter-section",
+        "blocks.franchise-and-careers-section"
+      ]
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "careers_pages",
+  "collectionName": "franchise_enquiry_pages",
   "info": {
-    "singularName": "careers-page",
-    "pluralName": "careers-pages",
-    "displayName": "Careers Page"
+    "singularName": "franchise-enquiry-page",
+    "pluralName": "franchise-enquiry-pages",
+    "displayName": "Franchise Enquiry Page"
   },
   "options": {
     "draftAndPublish": true

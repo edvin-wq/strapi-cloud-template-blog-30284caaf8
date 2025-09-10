@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_blocks_fact_figures_sections",
+  "info": {
+    "displayName": "Fact Figures Section",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "statsInfo": {
+      "type": "component",
+      "component": "cards.fact-info-counter",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

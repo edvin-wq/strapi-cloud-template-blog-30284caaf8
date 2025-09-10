@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_cards_fact_info_counters",
+  "info": {
+    "displayName": "Fact Info Counter"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "default": "number",
+      "enum": [
+        "number",
+        "percentage"
+      ]
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

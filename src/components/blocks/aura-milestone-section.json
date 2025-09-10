@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_aura_milestone_sections",
+  "info": {
+    "displayName": "Aura Milestone Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "data": {
+      "type": "component",
+      "component": "cards.aura-milestone-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

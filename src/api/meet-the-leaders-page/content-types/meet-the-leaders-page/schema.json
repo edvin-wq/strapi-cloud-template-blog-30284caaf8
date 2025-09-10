@@ -16,6 +16,19 @@
     },
     "description": {
       "type": "text"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.hero-section",
+        "blocks.text-section",
+        "blocks.card-section",
+        "blocks.board-directors",
+        "blocks.fact-figures-section",
+        "blocks.aura-milestone-section",
+        "blocks.media-room-section",
+        "blocks.franchise-and-careers-section"
+      ]
     }
   }
 }

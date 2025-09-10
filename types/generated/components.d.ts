@@ -1,5 +1,29 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksAuraMilestoneSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_aura_milestone_sections';
+  info: {
+    displayName: 'Aura Milestone Section';
+  };
+  attributes: {
+    data: Schema.Attribute.Component<'cards.aura-milestone-card', true>;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksBoardDirectors extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_board_directors';
+  info: {
+    displayName: 'Board Directors';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    teams: Schema.Attribute.Component<'cards.team-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksBrandsFilterSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_brands_filter_sections';
   info: {
@@ -12,7 +36,21 @@ export interface BlocksBrandsFilterSection extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     hasCategoryAll: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    showTabbing: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksCardSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_card_sections';
+  info: {
+    displayName: 'Card Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    subheading: Schema.Attribute.Text;
   };
 }
 
@@ -53,6 +91,19 @@ export interface BlocksCtaSection extends Struct.ComponentSchema {
   };
   attributes: {
     cta: Schema.Attribute.Component<'elements.link', false>;
+  };
+}
+
+export interface BlocksFactFiguresSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_fact_figures_sections';
+  info: {
+    displayName: 'Fact Figures Section';
+    icon: 'collapse';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    statsInfo: Schema.Attribute.Component<'cards.fact-info-counter', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -137,6 +188,19 @@ export interface BlocksMediaRoomSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksPartnerWithUsSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_partner_with_us_sections';
+  info: {
+    displayName: 'Partner With Us Section';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'elements.link', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksRestaurantBrandsSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_restaurant_brands_sections';
   info: {
@@ -214,6 +278,18 @@ export interface BlocksTextSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CardsAuraMilestoneCard extends Struct.ComponentSchema {
+  collectionName: 'components_cards_aura_milestone_cards';
+  info: {
+    displayName: 'Aura Milestone Card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    year: Schema.Attribute.String;
+  };
+}
+
 export interface CardsBrandContactInfo extends Struct.ComponentSchema {
   collectionName: 'components_cards_brand_contact_infos';
   info: {
@@ -246,6 +322,19 @@ export interface CardsCardPost extends Struct.ComponentSchema {
   };
 }
 
+export interface CardsFactInfoCounter extends Struct.ComponentSchema {
+  collectionName: 'components_cards_fact_info_counters';
+  info: {
+    displayName: 'Fact Info Counter';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['number', 'percentage']> &
+      Schema.Attribute.DefaultTo<'number'>;
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface CardsFranchiseCareersCard extends Struct.ComponentSchema {
   collectionName: 'components_cards_franchise_careers_cards';
   info: {
@@ -268,6 +357,19 @@ export interface CardsServiceCard extends Struct.ComponentSchema {
     cta: Schema.Attribute.Component<'elements.link', false>;
     image: Schema.Attribute.Media<'images'>;
     logo: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CardsTeamCard extends Struct.ComponentSchema {
+  collectionName: 'components_cards_team_cards';
+  info: {
+    displayName: 'Team Card';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -359,26 +461,34 @@ export interface SiteSettingsSocialInfo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.aura-milestone-section': BlocksAuraMilestoneSection;
+      'blocks.board-directors': BlocksBoardDirectors;
       'blocks.brands-filter-section': BlocksBrandsFilterSection;
+      'blocks.card-section': BlocksCardSection;
       'blocks.carousel': BlocksCarousel;
       'blocks.contact-information': BlocksContactInformation;
       'blocks.cta-section': BlocksCtaSection;
+      'blocks.fact-figures-section': BlocksFactFiguresSection;
       'blocks.featured-brands': BlocksFeaturedBrands;
       'blocks.franchise-and-careers-section': BlocksFranchiseAndCareersSection;
       'blocks.full-size-image': BlocksFullSizeImage;
       'blocks.hero-section': BlocksHeroSection;
       'blocks.main-news-section': BlocksMainNewsSection;
       'blocks.media-room-section': BlocksMediaRoomSection;
+      'blocks.partner-with-us-section': BlocksPartnerWithUsSection;
       'blocks.restaurant-brands-section': BlocksRestaurantBrandsSection;
       'blocks.restaurants-happening-section': BlocksRestaurantsHappeningSection;
       'blocks.service-cards': BlocksServiceCards;
       'blocks.shuffle-gallery': BlocksShuffleGallery;
       'blocks.signature-menu': BlocksSignatureMenu;
       'blocks.text-section': BlocksTextSection;
+      'cards.aura-milestone-card': CardsAuraMilestoneCard;
       'cards.brand-contact-info': CardsBrandContactInfo;
       'cards.card-post': CardsCardPost;
+      'cards.fact-info-counter': CardsFactInfoCounter;
       'cards.franchise-careers-card': CardsFranchiseCareersCard;
       'cards.service-card': CardsServiceCard;
+      'cards.team-card': CardsTeamCard;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.working-info': ElementsWorkingInfo;

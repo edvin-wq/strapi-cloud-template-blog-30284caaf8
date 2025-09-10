@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_cards_aura_milestone_cards",
+  "info": {
+    "displayName": "Aura Milestone Card"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

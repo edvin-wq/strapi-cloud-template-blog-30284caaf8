@@ -461,6 +461,7 @@ export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<['blocks.hero-section']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -522,6 +523,7 @@ export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<['blocks.hero-section']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -606,6 +608,37 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFranchiseEnquiryPageFranchiseEnquiryPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'franchise_enquiry_pages';
+  info: {
+    displayName: 'Franchise Enquiry Page';
+    pluralName: 'franchise-enquiry-pages';
+    singularName: 'franchise-enquiry-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Schema.Attribute.DynamicZone<['blocks.hero-section']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::franchise-enquiry-page.franchise-enquiry-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFranchisePageFranchisePage extends Struct.SingleTypeSchema {
   collectionName: 'franchise_pages';
   info: {
@@ -617,6 +650,15 @@ export interface ApiFranchisePageFranchisePage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.brands-filter-section',
+        'blocks.partner-with-us-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -765,6 +807,13 @@ export interface ApiMediaRoomPageMediaRoomPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.brands-filter-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -795,6 +844,18 @@ export interface ApiMeetTheLeadersPageMeetTheLeadersPage
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.card-section',
+        'blocks.board-directors',
+        'blocks.fact-figures-section',
+        'blocks.aura-milestone-section',
+        'blocks.media-room-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -824,6 +885,14 @@ export interface ApiPortfolioPagePortfolioPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.brands-filter-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1392,6 +1461,7 @@ declare module '@strapi/strapi' {
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::entertainment-service-page.entertainment-service-page': ApiEntertainmentServicePageEntertainmentServicePage;
       'api::event.event': ApiEventEvent;
+      'api::franchise-enquiry-page.franchise-enquiry-page': ApiFranchiseEnquiryPageFranchiseEnquiryPage;
       'api::franchise-page.franchise-page': ApiFranchisePageFranchisePage;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;

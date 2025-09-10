@@ -7,6 +7,7 @@ Strapi comes with a full featured [Command Line Interface](https://docs.strapi.i
 Transfer code
 export STRAPI_TRANSFER_TIMEOUT=600000
 ```
+npm run strapi transfer -- --to https://pretty-wonder-71e051ad09.strapiapp.com/admin --force
 npm run strapi transfer -- --to https://pretty-wonder-71e051ad09.strapiapp.com/admin --verbose
 npm run strapi transfer -- --to https://pretty-wonder-71e051ad09.strapiapp.com/admin --exclude files
 npm run strapi transfer -- --to https://pretty-wonder-71e051ad09.strapiapp.com/admin --only files
