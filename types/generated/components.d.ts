@@ -30,12 +30,13 @@ export interface BlocksBrandsFilterSection extends Struct.ComponentSchema {
     displayName: 'Brands Filter Section';
   };
   attributes: {
-    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
     categoryAllTitle: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'All'>;
     description: Schema.Attribute.Text;
     hasCategoryAll: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    maxBrands: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<12>;
+    serviceType: Schema.Attribute.Relation<'oneToOne', 'api::service.service'>;
     showTabbing: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String;
   };

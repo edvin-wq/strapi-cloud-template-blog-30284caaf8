@@ -11,6 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "serviceType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service"
+    },
     "title": {
       "type": "string"
     },
