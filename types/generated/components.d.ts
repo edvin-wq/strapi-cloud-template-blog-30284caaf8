@@ -12,6 +12,18 @@ export interface BlocksAuraMilestoneSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksBlogsSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_blogs_sections';
+  info: {
+    displayName: 'Blogs Section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    maxPosts: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksBoardDirectors extends Struct.ComponentSchema {
   collectionName: 'components_blocks_board_directors';
   info: {
@@ -183,8 +195,11 @@ export interface BlocksMediaRoomSection extends Struct.ComponentSchema {
     displayName: 'Media Room Section';
   };
   attributes: {
-    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
     description: Schema.Attribute.Text;
+    media_rooms: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-room.media-room'
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -239,6 +254,16 @@ export interface BlocksServiceCards extends Struct.ComponentSchema {
   };
   attributes: {
     services: Schema.Attribute.Component<'cards.service-card', true>;
+  };
+}
+
+export interface BlocksShowContactInfoSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_show_contact_info_sections';
+  info: {
+    displayName: 'Show Contact Info Section';
+  };
+  attributes: {
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
 
@@ -409,6 +434,36 @@ export interface ElementsWorkingInfo extends Struct.ComponentSchema {
   };
 }
 
+export interface FormCareersForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_careers_forms';
+  info: {
+    displayName: 'Careers Form';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FormContactUsForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_contact_us_forms';
+  info: {
+    displayName: 'Contact Us Form';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FormFranchiseEnquiryForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_franchise_enquiry_forms';
+  info: {
+    displayName: 'Franchise Enquiry Form';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutFooter extends Struct.ComponentSchema {
   collectionName: 'components_layout_footers';
   info: {
@@ -442,6 +497,7 @@ export interface SiteSettingsContactInfo extends Struct.ComponentSchema {
   };
   attributes: {
     address: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    location: Schema.Attribute.Text;
     opening_hours: Schema.Attribute.Blocks & Schema.Attribute.Required;
     phone: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -463,6 +519,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.aura-milestone-section': BlocksAuraMilestoneSection;
+      'blocks.blogs-section': BlocksBlogsSection;
       'blocks.board-directors': BlocksBoardDirectors;
       'blocks.brands-filter-section': BlocksBrandsFilterSection;
       'blocks.card-section': BlocksCardSection;
@@ -480,6 +537,7 @@ declare module '@strapi/strapi' {
       'blocks.restaurant-brands-section': BlocksRestaurantBrandsSection;
       'blocks.restaurants-happening-section': BlocksRestaurantsHappeningSection;
       'blocks.service-cards': BlocksServiceCards;
+      'blocks.show-contact-info-section': BlocksShowContactInfoSection;
       'blocks.shuffle-gallery': BlocksShuffleGallery;
       'blocks.signature-menu': BlocksSignatureMenu;
       'blocks.text-section': BlocksTextSection;
@@ -493,6 +551,9 @@ declare module '@strapi/strapi' {
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.working-info': ElementsWorkingInfo;
+      'form.careers-form': FormCareersForm;
+      'form.contact-us-form': FormContactUsForm;
+      'form.franchise-enquiry-form': FormFranchiseEnquiryForm;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'site-settings.contact-info': SiteSettingsContactInfo;

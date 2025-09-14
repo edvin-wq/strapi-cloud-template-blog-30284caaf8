@@ -11,10 +11,10 @@
     "description": {
       "type": "text"
     },
-    "blogs": {
+    "media_rooms": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::blog.blog"
+      "target": "api::media-room.media-room"
     }
   },
   "config": {}

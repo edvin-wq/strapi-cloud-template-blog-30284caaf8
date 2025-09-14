@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_blocks_show_contact_info_sections",
+  "info": {
+    "displayName": "Show Contact Info Section"
+  },
+  "options": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

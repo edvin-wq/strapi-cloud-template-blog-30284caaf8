@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_blogs_sections",
+  "info": {
+    "displayName": "Blogs Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "maxPosts": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

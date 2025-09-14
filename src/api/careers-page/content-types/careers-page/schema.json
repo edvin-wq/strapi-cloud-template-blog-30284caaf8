@@ -20,7 +20,10 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero-section"
+        "blocks.hero-section",
+        "blocks.text-section",
+        "form.careers-form",
+        "blocks.blogs-section"
       ]
     }
   }

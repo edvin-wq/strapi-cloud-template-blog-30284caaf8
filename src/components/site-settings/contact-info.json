@@ -16,6 +16,9 @@
     "phone": {
       "type": "string",
       "required": true
+    },
+    "location": {
+      "type": "text"
     }
   },
   "config": {}

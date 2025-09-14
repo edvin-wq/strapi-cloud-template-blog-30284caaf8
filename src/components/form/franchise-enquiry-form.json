@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_form_franchise_enquiry_forms",
+  "info": {
+    "displayName": "Franchise Enquiry Form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -20,7 +20,9 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero-section"
+        "blocks.hero-section",
+        "form.franchise-enquiry-form",
+        "blocks.blogs-section"
       ]
     }
   }

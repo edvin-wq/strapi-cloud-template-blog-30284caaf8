@@ -20,7 +20,10 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero-section"
+        "blocks.hero-section",
+        "form.contact-us-form",
+        "blocks.blogs-section",
+        "blocks.show-contact-info-section"
       ]
     }
   }

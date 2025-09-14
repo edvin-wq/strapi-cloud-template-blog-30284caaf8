@@ -451,6 +451,43 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareersFormCareersForm extends Struct.CollectionTypeSchema {
+  collectionName: 'careers_forms';
+  info: {
+    displayName: 'Careers Form';
+    pluralName: 'careers-forms';
+    singularName: 'careers-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    attachment: Schema.Attribute.Media<'files'>;
+    city: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    linkedinProfile: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::careers-form.careers-form'
+    > &
+      Schema.Attribute.Private;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    postalCode: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    state: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
   collectionName: 'careers_pages';
   info: {
@@ -462,7 +499,14 @@ export interface ApiCareersPageCareersPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['blocks.hero-section']>;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'form.careers-form',
+        'blocks.blogs-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -513,6 +557,39 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactFormContactForm extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_forms';
+  info: {
+    displayName: 'Contact Form';
+    pluralName: 'contact-forms';
+    singularName: 'contact-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    helpFor: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-form.contact-form'
+    > &
+      Schema.Attribute.Private;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
   collectionName: 'contact_us_pages';
   info: {
@@ -524,7 +601,14 @@ export interface ApiContactUsPageContactUsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['blocks.hero-section']>;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'form.contact-us-form',
+        'blocks.blogs-section',
+        'blocks.show-contact-info-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -609,6 +693,41 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFranchiseEnquiryFormFranchiseEnquiryForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'franchise_enquiry_forms';
+  info: {
+    displayName: 'Franchise Enquiry Form';
+    pluralName: 'franchise-enquiry-forms';
+    singularName: 'franchise-enquiry-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String & Schema.Attribute.Required;
+    companyName: Schema.Attribute.String & Schema.Attribute.Required;
+    country: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    industry: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::franchise-enquiry-form.franchise-enquiry-form'
+    > &
+      Schema.Attribute.Private;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFranchiseEnquiryPageFranchiseEnquiryPage
   extends Struct.SingleTypeSchema {
   collectionName: 'franchise_enquiry_pages';
@@ -621,7 +740,13 @@ export interface ApiFranchiseEnquiryPageFranchiseEnquiryPage
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<['blocks.hero-section']>;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'form.franchise-enquiry-form',
+        'blocks.blogs-section',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -826,6 +951,39 @@ export interface ApiMediaRoomPageMediaRoomPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediaRoomMediaRoom extends Struct.CollectionTypeSchema {
+  collectionName: 'media_rooms';
+  info: {
+    displayName: 'Media Room';
+    pluralName: 'media-rooms';
+    singularName: 'media-room';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    excerpt: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-room.media-room'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1485,17 +1643,21 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::blog.blog': ApiBlogBlog;
       'api::brand.brand': ApiBrandBrand;
+      'api::careers-form.careers-form': ApiCareersFormCareersForm;
       'api::careers-page.careers-page': ApiCareersPageCareersPage;
       'api::category.category': ApiCategoryCategory;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::entertainment-service-page.entertainment-service-page': ApiEntertainmentServicePageEntertainmentServicePage;
       'api::event.event': ApiEventEvent;
+      'api::franchise-enquiry-form.franchise-enquiry-form': ApiFranchiseEnquiryFormFranchiseEnquiryForm;
       'api::franchise-enquiry-page.franchise-enquiry-page': ApiFranchiseEnquiryPageFranchiseEnquiryPage;
       'api::franchise-page.franchise-page': ApiFranchisePageFranchisePage;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::hospitality-and-food-service-page.hospitality-and-food-service-page': ApiHospitalityAndFoodServicePageHospitalityAndFoodServicePage;
       'api::media-room-page.media-room-page': ApiMediaRoomPageMediaRoomPage;
+      'api::media-room.media-room': ApiMediaRoomMediaRoom;
       'api::meet-the-leaders-page.meet-the-leaders-page': ApiMeetTheLeadersPageMeetTheLeadersPage;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
       'api::restaurants-happening.restaurants-happening': ApiRestaurantsHappeningRestaurantsHappening;

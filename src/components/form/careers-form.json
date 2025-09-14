@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_form_careers_forms",
+  "info": {
+    "displayName": "Careers Form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
