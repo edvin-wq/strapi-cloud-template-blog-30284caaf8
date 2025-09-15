@@ -706,6 +706,8 @@ export interface ApiFranchiseEnquiryFormFranchiseEnquiryForm
   };
   attributes: {
     address: Schema.Attribute.String & Schema.Attribute.Required;
+    availableInvestment: Schema.Attribute.String;
+    canStartBussiness: Schema.Attribute.String;
     companyName: Schema.Attribute.String & Schema.Attribute.Required;
     country: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
@@ -713,7 +715,9 @@ export interface ApiFranchiseEnquiryFormFranchiseEnquiryForm
       Schema.Attribute.Private;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
     fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    hasExperience: Schema.Attribute.String;
     industry: Schema.Attribute.String & Schema.Attribute.Required;
+    knowAboutUs: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -721,7 +725,9 @@ export interface ApiFranchiseEnquiryFormFranchiseEnquiryForm
     > &
       Schema.Attribute.Private;
     phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    planForFranchise: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    territoryOfInterests: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -745,6 +751,7 @@ export interface ApiFranchiseEnquiryPageFranchiseEnquiryPage
         'blocks.hero-section',
         'form.franchise-enquiry-form',
         'blocks.blogs-section',
+        'blocks.text-section',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

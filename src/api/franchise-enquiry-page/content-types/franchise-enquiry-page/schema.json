@@ -22,7 +22,8 @@
       "components": [
         "blocks.hero-section",
         "form.franchise-enquiry-form",
-        "blocks.blogs-section"
+        "blocks.blogs-section",
+        "blocks.text-section"
       ]
     }
   }

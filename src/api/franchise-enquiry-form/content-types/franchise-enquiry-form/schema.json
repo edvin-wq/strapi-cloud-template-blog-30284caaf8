@@ -38,6 +38,24 @@
     "industry": {
       "type": "string",
       "required": true
+    },
+    "territoryOfInterests": {
+      "type": "string"
+    },
+    "planForFranchise": {
+      "type": "string"
+    },
+    "availableInvestment": {
+      "type": "string"
+    },
+    "canStartBussiness": {
+      "type": "string"
+    },
+    "hasExperience": {
+      "type": "string"
+    },
+    "knowAboutUs": {
+      "type": "string"
     }
   }
 }
