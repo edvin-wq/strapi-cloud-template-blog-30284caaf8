@@ -13,6 +13,10 @@
     },
     "maxPosts": {
       "type": "integer"
+    },
+    "randomPosts": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

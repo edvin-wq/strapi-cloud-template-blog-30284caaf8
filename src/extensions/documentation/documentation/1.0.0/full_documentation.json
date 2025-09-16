@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-09-16T21:42:22.808Z"
+    "x-generation-date": "2025-09-16T22:33:50.619Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -13098,6 +13098,12 @@
                     },
                     {
                       "$ref": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BlocksBlogsSectionComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BlocksSinglePostContentComponent"
                     }
                   ]
                 },
@@ -13106,7 +13112,9 @@
                   "mapping": {
                     "blocks.hero-section": "#/components/schemas/BlocksHeroSectionComponent",
                     "blocks.text-section": "#/components/schemas/BlocksTextSectionComponent",
-                    "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                    "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent",
+                    "blocks.blogs-section": "#/components/schemas/BlocksBlogsSectionComponent",
+                    "blocks.single-post-content": "#/components/schemas/BlocksSinglePostContentComponent"
                   }
                 }
               },
@@ -13193,6 +13201,12 @@
                 },
                 {
                   "$ref": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/BlocksBlogsSectionComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/BlocksSinglePostContentComponent"
                 }
               ]
             },
@@ -13201,7 +13215,9 @@
               "mapping": {
                 "blocks.hero-section": "#/components/schemas/BlocksHeroSectionComponent",
                 "blocks.text-section": "#/components/schemas/BlocksTextSectionComponent",
-                "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent",
+                "blocks.blogs-section": "#/components/schemas/BlocksBlogsSectionComponent",
+                "blocks.single-post-content": "#/components/schemas/BlocksSinglePostContentComponent"
               }
             }
           },
@@ -13271,6 +13287,12 @@
                       },
                       {
                         "$ref": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/BlocksBlogsSectionComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/BlocksSinglePostContentComponent"
                       }
                     ]
                   },
@@ -13279,7 +13301,9 @@
                     "mapping": {
                       "blocks.hero-section": "#/components/schemas/BlocksHeroSectionComponent",
                       "blocks.text-section": "#/components/schemas/BlocksTextSectionComponent",
-                      "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                      "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent",
+                      "blocks.blogs-section": "#/components/schemas/BlocksBlogsSectionComponent",
+                      "blocks.single-post-content": "#/components/schemas/BlocksSinglePostContentComponent"
                     }
                   }
                 },
@@ -13347,6 +13371,49 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "BlocksBlogsSectionComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "blocks.blogs-section"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "maxPosts": {
+            "type": "integer"
+          },
+          "randomPosts": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BlocksSinglePostContentComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "blocks.single-post-content"
+            ]
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
@@ -16959,29 +17026,6 @@
           },
           "title": {
             "type": "string"
-          }
-        }
-      },
-      "BlocksBlogsSectionComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "__component": {
-            "type": "string",
-            "enum": [
-              "blocks.blogs-section"
-            ]
-          },
-          "title": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "maxPosts": {
-            "type": "integer"
           }
         }
       },
@@ -23885,6 +23929,12 @@
                     },
                     {
                       "$ref": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BlocksMediaRoomSectionComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BlocksSinglePostContentComponent"
                     }
                   ]
                 },
@@ -23893,7 +23943,9 @@
                   "mapping": {
                     "blocks.hero-section": "#/components/schemas/BlocksHeroSectionComponent",
                     "blocks.text-section": "#/components/schemas/BlocksTextSectionComponent",
-                    "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                    "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent",
+                    "blocks.media-room-section": "#/components/schemas/BlocksMediaRoomSectionComponent",
+                    "blocks.single-post-content": "#/components/schemas/BlocksSinglePostContentComponent"
                   }
                 }
               },
@@ -23980,6 +24032,12 @@
                 },
                 {
                   "$ref": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/BlocksMediaRoomSectionComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/BlocksSinglePostContentComponent"
                 }
               ]
             },
@@ -23988,7 +24046,9 @@
               "mapping": {
                 "blocks.hero-section": "#/components/schemas/BlocksHeroSectionComponent",
                 "blocks.text-section": "#/components/schemas/BlocksTextSectionComponent",
-                "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent",
+                "blocks.media-room-section": "#/components/schemas/BlocksMediaRoomSectionComponent",
+                "blocks.single-post-content": "#/components/schemas/BlocksSinglePostContentComponent"
               }
             }
           },
@@ -24058,6 +24118,12 @@
                       },
                       {
                         "$ref": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/BlocksMediaRoomSectionComponent"
+                      },
+                      {
+                        "$ref": "#/components/schemas/BlocksSinglePostContentComponent"
                       }
                     ]
                   },
@@ -24066,7 +24132,9 @@
                     "mapping": {
                       "blocks.hero-section": "#/components/schemas/BlocksHeroSectionComponent",
                       "blocks.text-section": "#/components/schemas/BlocksTextSectionComponent",
-                      "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent"
+                      "blocks.franchise-and-careers-section": "#/components/schemas/BlocksFranchiseAndCareersSectionComponent",
+                      "blocks.media-room-section": "#/components/schemas/BlocksMediaRoomSectionComponent",
+                      "blocks.single-post-content": "#/components/schemas/BlocksSinglePostContentComponent"
                     }
                   }
                 },

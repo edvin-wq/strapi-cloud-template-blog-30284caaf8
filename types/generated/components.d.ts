@@ -20,6 +20,7 @@ export interface BlocksBlogsSection extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     maxPosts: Schema.Attribute.Integer;
+    randomPosts: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
   };
 }
@@ -302,6 +303,16 @@ export interface BlocksSignatureMenu extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksSinglePostContent extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_single_post_contents';
+  info: {
+    displayName: 'Single Post Content';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksTextSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_text_sections';
   info: {
@@ -550,6 +561,7 @@ declare module '@strapi/strapi' {
       'blocks.show-contact-info-section': BlocksShowContactInfoSection;
       'blocks.shuffle-gallery': BlocksShuffleGallery;
       'blocks.signature-menu': BlocksSignatureMenu;
+      'blocks.single-post-content': BlocksSinglePostContent;
       'blocks.text-section': BlocksTextSection;
       'cards.aura-milestone-card': CardsAuraMilestoneCard;
       'cards.brand-contact-info': CardsBrandContactInfo;

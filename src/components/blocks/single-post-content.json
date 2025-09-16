@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_blocks_single_post_contents",
+  "info": {
+    "displayName": "Single Post Content"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

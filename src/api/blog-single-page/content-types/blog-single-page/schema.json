@@ -22,7 +22,9 @@
       "components": [
         "blocks.hero-section",
         "blocks.text-section",
-        "blocks.franchise-and-careers-section"
+        "blocks.franchise-and-careers-section",
+        "blocks.blogs-section",
+        "blocks.single-post-content"
       ]
     }
   }

@@ -427,6 +427,8 @@ export interface ApiBlogSinglePageBlogSinglePage
         'blocks.hero-section',
         'blocks.text-section',
         'blocks.franchise-and-careers-section',
+        'blocks.blogs-section',
+        'blocks.single-post-content',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1060,6 +1062,8 @@ export interface ApiMediaRoomSinglePageMediaRoomSinglePage
         'blocks.hero-section',
         'blocks.text-section',
         'blocks.franchise-and-careers-section',
+        'blocks.media-room-section',
+        'blocks.single-post-content',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
