@@ -373,6 +373,80 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogPageBlogPage extends Struct.SingleTypeSchema {
+  collectionName: 'blog_pages';
+  info: {
+    displayName: 'Blog Page';
+    pluralName: 'blog-pages';
+    singularName: 'blog-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.franchise-and-careers-section',
+        'blocks.list-posts',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-page.blog-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBlogSinglePageBlogSinglePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'blog_single_pages';
+  info: {
+    displayName: 'Blog Single Page';
+    pluralName: 'blog-single-pages';
+    singularName: 'blog-single-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-single-page.blog-single-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   collectionName: 'blogs';
   info: {
@@ -427,7 +501,10 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
         'blocks.full-size-image',
       ]
     >;
-    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
     comingSoon: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -943,8 +1020,9 @@ export interface ApiMediaRoomPageMediaRoomPage extends Struct.SingleTypeSchema {
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.hero-section',
-        'blocks.brands-filter-section',
         'blocks.franchise-and-careers-section',
+        'blocks.text-section',
+        'blocks.list-posts',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -955,6 +1033,43 @@ export interface ApiMediaRoomPageMediaRoomPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::media-room-page.media-room-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediaRoomSinglePageMediaRoomSinglePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'media_room_single_pages';
+  info: {
+    displayName: 'Media Room Single Page';
+    pluralName: 'media-room-single-pages';
+    singularName: 'media-room-single-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.hero-section',
+        'blocks.text-section',
+        'blocks.franchise-and-careers-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::media-room-single-page.media-room-single-page'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1020,6 +1135,7 @@ export interface ApiMeetTheLeadersPageMeetTheLeadersPage
         'blocks.aura-milestone-section',
         'blocks.media-room-section',
         'blocks.franchise-and-careers-section',
+        'blocks.blogs-section',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1648,6 +1764,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::blog-page.blog-page': ApiBlogPageBlogPage;
+      'api::blog-single-page.blog-single-page': ApiBlogSinglePageBlogSinglePage;
       'api::blog.blog': ApiBlogBlog;
       'api::brand.brand': ApiBrandBrand;
       'api::careers-form.careers-form': ApiCareersFormCareersForm;
@@ -1664,6 +1782,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::hospitality-and-food-service-page.hospitality-and-food-service-page': ApiHospitalityAndFoodServicePageHospitalityAndFoodServicePage;
       'api::media-room-page.media-room-page': ApiMediaRoomPageMediaRoomPage;
+      'api::media-room-single-page.media-room-single-page': ApiMediaRoomSinglePageMediaRoomSinglePage;
       'api::media-room.media-room': ApiMediaRoomMediaRoom;
       'api::meet-the-leaders-page.meet-the-leaders-page': ApiMeetTheLeadersPageMeetTheLeadersPage;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;

@@ -175,6 +175,18 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksListPosts extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_list_posts';
+  info: {
+    displayName: 'List Posts';
+  };
+  attributes: {
+    maxPosts: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['Blog', 'MediaRoom']>;
+  };
+}
+
 export interface BlocksMainNewsSection extends Struct.ComponentSchema {
   collectionName: 'components_blocks_main_news_sections';
   info: {
@@ -196,10 +208,7 @@ export interface BlocksMediaRoomSection extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    media_rooms: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::media-room.media-room'
-    >;
+    maxPosts: Schema.Attribute.Integer;
     title: Schema.Attribute.String;
   };
 }
@@ -531,6 +540,7 @@ declare module '@strapi/strapi' {
       'blocks.franchise-and-careers-section': BlocksFranchiseAndCareersSection;
       'blocks.full-size-image': BlocksFullSizeImage;
       'blocks.hero-section': BlocksHeroSection;
+      'blocks.list-posts': BlocksListPosts;
       'blocks.main-news-section': BlocksMainNewsSection;
       'blocks.media-room-section': BlocksMediaRoomSection;
       'blocks.partner-with-us-section': BlocksPartnerWithUsSection;

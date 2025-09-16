@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blocks_list_posts",
+  "info": {
+    "displayName": "List Posts"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "maxPosts": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Blog",
+        "MediaRoom"
+      ]
+    }
+  },
+  "config": {}
+}

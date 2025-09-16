@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "media_room_pages",
+  "collectionName": "blog_pages",
   "info": {
-    "singularName": "media-room-page",
-    "pluralName": "media-room-pages",
-    "displayName": "Media Room Page"
+    "singularName": "blog-page",
+    "pluralName": "blog-pages",
+    "displayName": "Blog Page"
   },
   "options": {
     "draftAndPublish": true
@@ -21,8 +21,8 @@
       "type": "dynamiczone",
       "components": [
         "blocks.hero-section",
-        "blocks.franchise-and-careers-section",
         "blocks.text-section",
+        "blocks.franchise-and-careers-section",
         "blocks.list-posts"
       ]
     }

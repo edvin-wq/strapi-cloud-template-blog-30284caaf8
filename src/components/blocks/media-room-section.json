@@ -11,10 +11,8 @@
     "description": {
       "type": "text"
     },
-    "media_rooms": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::media-room.media-room"
+    "maxPosts": {
+      "type": "integer"
     }
   },
   "config": {}

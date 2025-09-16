@@ -27,7 +27,8 @@
         "blocks.fact-figures-section",
         "blocks.aura-milestone-section",
         "blocks.media-room-section",
-        "blocks.franchise-and-careers-section"
+        "blocks.franchise-and-careers-section",
+        "blocks.blogs-section"
       ]
     }
   }

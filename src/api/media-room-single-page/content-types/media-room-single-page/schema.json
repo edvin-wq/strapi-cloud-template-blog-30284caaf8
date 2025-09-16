@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "media_room_pages",
+  "collectionName": "media_room_single_pages",
   "info": {
-    "singularName": "media-room-page",
-    "pluralName": "media-room-pages",
-    "displayName": "Media Room Page"
+    "singularName": "media-room-single-page",
+    "pluralName": "media-room-single-pages",
+    "displayName": "Media Room Single Page"
   },
   "options": {
     "draftAndPublish": true
@@ -21,9 +21,8 @@
       "type": "dynamiczone",
       "components": [
         "blocks.hero-section",
-        "blocks.franchise-and-careers-section",
         "blocks.text-section",
-        "blocks.list-posts"
+        "blocks.franchise-and-careers-section"
       ]
     }
   }
