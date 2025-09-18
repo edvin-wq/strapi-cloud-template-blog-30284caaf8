@@ -16,11 +16,11 @@
     "upload": "npx run upload-server.js"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "^5.18.0",
-    "@strapi/plugin-documentation": "^5.23.4",
-    "@strapi/plugin-users-permissions": "^5.23.1",
-    "@strapi/strapi": "^5.23.1",
-    "fs-extra": "^11.3.1",
+    "@strapi/plugin-cloud": "^5.23.5",
+    "@strapi/plugin-documentation": "^5.23.5",
+    "@strapi/plugin-users-permissions": "^5.23.5",
+    "@strapi/strapi": "^5.23.5",
+    "fs-extra": "^11.3.2",
     "mime-types": "^3.0.1",
     "mysql2": "^3.14.3",
     "react": "^18.0.0",
